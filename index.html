@@ -906,26 +906,29 @@
 
         <section class="contact-form">
 
-          <h3 class="h3 form-title">Contact Form</h3>
+  <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="#" class="form" data-form>
+  <form action="#" class="form" data-form id="contactForm">
 
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+    <div class="input-wrapper">
+      <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+      <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+    </div>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
+    <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <textarea name="message" class="form-input" placeholder="Your Message (Send a message might not work as no domain yet. To message, click my email instead)" required data-form-input></textarea>
+    <!-- ✅ Inline messages -->
+    <p id="formStatus" style="display:none; color:green; margin-top:8px;">Message sent successfully!</p>
+    <p id="formError" style="display:none; color:red; margin-top:8px;">Oops! Something went wrong. Try again later.</p>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+    <button class="form-btn" type="submit" disabled data-form-btn>
+      <ion-icon name="paper-plane"></ion-icon>
+      <span>Send Message</span>
+    </button>
 
-          </form>
+  </form>
 
-        </section>
+</section>
 
       </article>
 
@@ -953,8 +956,17 @@
     </div>
   </div>
 
-  <!-- custom js link -->
-  <script src="./assets/js/script.js"></script>
+  <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  (function(){
+    emailjs.init("YOURr8CsXndUuDgE-r_nd"); // Replace with your EmailJS public key
+  })();
+</script>
+
+<!-- Your main JS -->
+<script src="./assets/js/script.js"></script>
 
   <!-- ionicon link -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
