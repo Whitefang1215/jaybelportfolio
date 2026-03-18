@@ -162,7 +162,7 @@ const closeVideoBtn = document.querySelector(".close-btn");
 if (videoModal && modalVideo && videoSource) {
   
   // Open modal only on play button click
-  document.querySelectorAll(".project-item-icon-box").forEach(icon => {
+  document.querySelectorAll(".project-card .project-item-icon-box").forEach(icon => {
     icon.addEventListener("click", (e) => {
       e.stopPropagation(); // prevent card clicks
       const card = icon.closest(".project-card");
@@ -195,3 +195,35 @@ if (videoModal && modalVideo && videoSource) {
     }
   });
 }
+
+// ------------------------------
+// IMAGE MODAL (FIXED)
+// ------------------------------
+const imageModal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImg");
+const closeImageBtn = document.querySelector(".close-image");
+
+document.querySelectorAll(".project-item .view-image").forEach(icon => {
+  icon.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const imgSrc = this.getAttribute("data-img");
+    if (!imgSrc) return;
+
+    modalImage.src = imgSrc;
+    imageModal.style.display = "block";
+  });
+});
+
+if (closeImageBtn) {
+  closeImageBtn.addEventListener("click", () => {
+    imageModal.style.display = "none";
+  });
+}
+
+window.addEventListener("click", (e) => {
+  if (e.target === imageModal) {
+    imageModal.style.display = "none";
+  }
+});

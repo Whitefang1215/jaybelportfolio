@@ -747,6 +747,59 @@ main {
   line-height: 1.6;
 }
 
+
+/* IMAGE MODAL */
+.image-modal {
+  display: none;               /* hidden by default */
+  position: fixed;             /* stay in place */
+  z-index: 1000;               /* above everything */
+  left: 0;
+  top: 0;
+  width: 100%;                 /* full screen */
+  height: 100%;                /* full screen */
+  overflow: auto;              /* scroll if needed */
+  background-color: rgba(0,0,0,0.8); /* dark semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Show modal when active */
+.image-modal.active {
+  display: flex;               /* flex center */
+}
+
+/* Image inside modal */
+.modal-image-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close button */
+.close-image {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1100;
+}
+
+.close-image:hover {
+  color: #ff4c4c;
+}
+
+/* optional fade-in animation */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 /* ============================= */
 /* 🎬 VIDEO MODAL (ADD BELOW) */
 /* ============================= */
